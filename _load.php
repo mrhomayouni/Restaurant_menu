@@ -23,9 +23,15 @@ function get_food($restaurant_id){
     $stmt->execute();
     $foods=$stmt->fetchAll();
     return $foods;
-
 }
-
+function check_restaurants(){
+    global $db;
+    $sql="SELECT * FROM `restaurants`";
+    $stmt=$db->prepare($sql);
+    $stmt->execute();
+    $restaurent=$stmt->fetchAll();
+    return $restaurent;
+}
 
 
 

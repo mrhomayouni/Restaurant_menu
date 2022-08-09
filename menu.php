@@ -4,8 +4,12 @@ $flag = false;
 if (isset($_GET["restaurant_id"])) {
     $restaurant_id = $_GET["restaurant_id"];
     $restaurant = get_restaurant($restaurant_id);
-    $foods = get_food($restaurant_id);
-    $flag = true;
+    if ($restaurant !== false) {
+        $foods = get_food($restaurant_id);
+        $flag = true;
+    } else {
+        echo "شناسه رستوران نامعتبر است!!";
+    }
 }
 ?>
 
